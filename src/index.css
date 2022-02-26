@@ -14,3 +14,17 @@ svg.viewbox{
     top:0px;
     left:-5px
 }
+
+div.line {
+    position:absolute;
+}
+
+div.horizontalLine {
+    border-top: 3px solid green;
+    left: 0;
+}
+
+div.verticalLine {
+    border-left: 3px solid orangered;
+    top: 0;
+}
