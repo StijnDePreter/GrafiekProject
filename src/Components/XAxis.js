@@ -2,7 +2,8 @@
 function XAxis(props) {
     return (
         <div className="XAxis">
-            <svg viewBox={"0 0 "+ (props.width+10)+" " + (props.height+10)} className="viewbox">
+            {/* <svg viewBox={"0 0 "+ (props.width+10)+" " + (props.height+10)} className="viewbox"> */}
+            <svg viewBox={`0 0 ${props.width+10} ${props.height+10}`} className="viewbox">
                 <defs>
                     <marker id="pointer" markerWidth="10" markerHeight="3"
                         refX="0" refY="1.5" orient="auto">

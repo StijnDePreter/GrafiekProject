@@ -13,12 +13,26 @@ function Graph(props) {
   var topOfsets = Array.from({length: 10}, (_, i) => (props.height/10) *i);
   var LeftOfsets = Array.from({length: 10}, (_, i) => (props.width/10) *(i+1));
   
+  const [
+    mousePosition,
+    setMousePosition
+  ] = useState({ x: 0, y: 0});
 
   return (
     <div className="graph" style={graphDimensions} 
     // onClick={()=> props.addAPoint()} //dit werkt!
     //onClick={()=>(console.log(props.points))}
-    onClick={()=> props.addAPoint({ x: 10, y: 20})}
+    // onClick={()=> props.addAPoint({ x: 10, y: 20})}
+    //volgende twee werken:
+    onMouseMove={(e)=> setMousePosition({ x: e.nativeEvent.offsetY-5, y: e.nativeEvent.offsetX-10 })}
+    onClick={()=> props.addAPoint(mousePosition)}
+    
+
+    // onderstaande werkt ook, maar gebruikt geen state
+    // onClick={(e)=> props.addAPoint({ x: e.nativeEvent.offsetY, y: e.nativeEvent.offsetX })}
+
+    // { x: e.nativeEvent.offsetX, y: e.nativeEvent.offsetY }
+
     >
       <YAxis height = {props.height} width = {props.width} />
       <XAxis height = {props.height} width = {props.width} />
