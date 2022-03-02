@@ -5,11 +5,10 @@ div.graph {
     position: relative;
     width: 300px;
     height: 300px;
-    border: 1px solid red;
 }
   
 svg.viewbox{
-    border: 2px solid green;
+    
     position:absolute;
     top:0px;
     left:-5px
@@ -20,11 +19,15 @@ div.line {
 }
 
 div.horizontalLine {
-    border-top: 3px solid green;
+    border-top: 1px solid gray;
     left: 0;
 }
 
 div.verticalLine {
-    border-left: 3px solid orangered;
+    border-left: 1px solid gray;
     top: 0;
+}
+
+svg.point {
+    position:absolute;
 }
