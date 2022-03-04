@@ -20,19 +20,8 @@ function Graph(props) {
 
   return (
     <div className="graph" style={graphDimensions} 
-    // onClick={()=> props.addAPoint()} //dit werkt!
-    //onClick={()=>(console.log(props.points))}
-    // onClick={()=> props.addAPoint({ x: 10, y: 20})}
-    //volgende twee werken:
     onMouseMove={(e)=> setMousePosition({ x: e.nativeEvent.offsetY-5, y: e.nativeEvent.offsetX-10 })}
     onClick={()=> props.addAPoint(mousePosition)}
-    
-
-    // onderstaande werkt ook, maar gebruikt geen state
-    // onClick={(e)=> props.addAPoint({ x: e.nativeEvent.offsetY, y: e.nativeEvent.offsetX })}
-
-    // { x: e.nativeEvent.offsetX, y: e.nativeEvent.offsetY }
-
     >
       <YAxis height = {props.height} width = {props.width} />
       <XAxis height = {props.height} width = {props.width} />
@@ -42,10 +31,9 @@ function Graph(props) {
       {LeftOfsets.map(Offset => 
         <GridVertical key={"LeftOffset: " + Offset} leftOffset = {Offset} height = {props.height} /> 
       )}
-      {props.points.map(Pointcoordinates => 
-        <Point key={"cooridinates: " + Pointcoordinates.x + ", " + Pointcoordinates.y} x = {Pointcoordinates.x} y = {Pointcoordinates.y} /> 
+      {props.points.map((Pointcoordinates ,index) => 
+        <Point key={"point: " + index + "cooridinates: " + Pointcoordinates.x + ", " + Pointcoordinates.y} x = {Pointcoordinates.x} y = {Pointcoordinates.y} /> 
       )}
-      
     </div>
   );
 }

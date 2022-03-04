@@ -1,6 +1,13 @@
 function NextButton(props) {
+
+    var classNames = "btn btn-outline-secondary disabled"
+
+    if (props.buttonActive){
+        classNames = "btn btn-outline-secondary"
+    }
+
     return (
-        <button type="button">voeg laatst verwijderd punt terug bij</button>
+        <button className= {classNames} disabled={!props.buttonActive} type="button" onClick={()=> props.restoreAPoint()}>Redo</button>
     );
 }
 
