@@ -21,10 +21,13 @@ function App() {
       <Head/>
       <Graph height= {300} width={500} points={points} addAPoint = {(newPoint) => {setPoints(oldArray => [...oldArray, newPoint]); setPointsInMemory(oldArray => oldArray.slice(0,0) );}} />
       <div className="btn-group btn-group-lg" role="group">
-        <PreviousButton removeAPoint = {
+        <PreviousButton buttonActive = {(points.length > 0)} 
+        removeAPoint = {
           () => {setPointsInMemory(oldArray => [...oldArray, points[points.length-1]]);setPoints(oldArray => oldArray.slice(0,-1)); }
         }/>
-        <NextButton buttonActive = {(pointsInMemory.length > 0)} restoreAPoint = {
+        <NextButton 
+        buttonActive = {(pointsInMemory.length > 0)} 
+        restoreAPoint = {
           () => {setPoints(oldArray => [...oldArray, pointsInMemory[pointsInMemory.length-1]]);setPointsInMemory(oldArray => oldArray.slice(0,-1)); }
         }/>
       </div>
